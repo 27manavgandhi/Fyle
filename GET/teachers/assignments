@@ -1,0 +1,10 @@
+GET /teacher/assignments
+
+@app.route('/teacher/assignments', methods=['GET'])
+@jwt_required()  
+def get_teacher_assignments():
+    teacher_id = get_jwt_identity()  
+    assignments = Assignment.query.filter_by(teacher_id=teacher_id).all()  
+    serialized_assignments = [assignment.serialize() for assignment in assignments]  
+    return jsonify(serialized_assignments), 200  # return serialized assignments in JSON format
+
