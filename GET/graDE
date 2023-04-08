@@ -1,0 +1,13 @@
+POST /teacher/assignments/grade
+
+{
+  "assignment_id": "1234",
+  "student_id": "5678",
+  "grade": 95
+}
+
+
+{
+  "status": "success",
+  "message": "Grade submitted successfully."
+}
